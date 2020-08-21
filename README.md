@@ -72,11 +72,11 @@
   </tr>
   <tr>
     <td><strong><code>POST /api/topics/{name_id:str}</code></strong></td>
-    <td>Creates a specific content under a certain topic.</td>
+    <td>Creates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</td>
   </tr>
   <tr>
     <td><strong><code>PUT /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
-    <td>Updates a specific content under a certain topic.</td>
+    <td>Updates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</td>
   </tr>
   <tr>
     <td><strong><code>DELETE /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
