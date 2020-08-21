@@ -7,7 +7,7 @@
 <h3>Major requirements</h3>
 <ul>
   <li>This sample task requires Python 3.8+.</li>
-  <li>The database used in this sample task is MySQL, you must create a database namely 'screening' without quote.</li>
+  <li>The database used in this sample task is MySQL, you must create a database namely <strong><code>screening</code></strong>.</li>
 </ul>
 
 
