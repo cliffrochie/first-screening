@@ -51,10 +51,10 @@
 <p><strong><code>/api/topics/{name_id:str} - PUT</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific topic, to submit -> { "name": str, "description": str }</p>
 <p><strong><code>/api/topics/{name_id:str} - DELETE</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific topic.</p>
 <br/>
-<p><strong><code>/api/topics/{name_id:str}/<sequence_number:int> - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch a specific content under a certain topic.</p>
-<p><strong><code>/api/topics/{name_id:str}/ - POST</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a specific content under a certain topic.</p>
-<p><strong><code>/api/topics/{name_id:str}/<sequence_number:int> - PUT</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific content under a certain topic.</p>
-<p><strong><code>/api/topics/{name_id:str}/<sequence_number:int> - DELETE</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific content under a certain topic.</p>
+<p><strong><code>/api/topics/{name_id:str}/{sequence_number:int} - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch a specific content under a certain topic.</p>
+<p><strong><code>/api/topics/{name_id:str} - POST</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a specific content under a certain topic.</p>
+<p><strong><code>/api/topics/{name_id:str}/{sequence_number:int} - PUT</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific content under a certain topic.</p>
+<p><strong><code>/api/topics/{name_id:str}/{sequence_number:int} - DELETE</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific content under a certain topic.</p>
 <br/>
 <h3>Note</h3>
 <p>Only a user that is registered at access POST, PUT, and DELETE request methods. To do that, you must access the <strong><code>/api/login</code></strong> route which it will return a response with a token value, but in this sample task, it is not that really important, it's just for the demo purpose only.</p>
