@@ -1,7 +1,7 @@
 # first-screening
 
 <h3>Introduction</h3>
-<p>This sample task is to demonstrate the skills of an applicant (me).</p>
+<p>This sample task is to demonstrate the skills of the applicant (me).</p>
 <p>It is a basic RESTFul API that is developed using Flask micro web framework. It has basic CRUD Functionality.</p>
 
 <h3>Major requirements</h3>
