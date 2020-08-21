@@ -48,39 +48,39 @@
 <table>
   <tr>
     <td><strong><code>GET /api/topics/</code></strong></td>
-    <td>Fetch all the topics stored in the database.</td>
+    <td><small>Fetch all the topics stored in the database.</small></td>
   </tr>  
   <tr>
     <td><strong><code>GET /api/topics/{name_id:str}</code></strong></td>
-    <td>Fetch a specific topic via its required id.</td>
+    <td><small>Fetch a specific topic via its required id.</small></td>
   </tr>
   <tr>
     <td><strong><code>POST /api/topics/</code></strong></td>
-    <td>Creates a new topic, to submit -> { "name": str, "description": str }</td>
+    <td><small>Creates a new topic, to submit -> { "name": str, "description": str }</small></td>
   </tr>
   <tr>
     <td><strong><code>PUT /api/topics/{name_id:str}</code></strong></td>
-    <td>Updates a specific topic, to submit -> { "name": str, "description": str }</td>
+    <td><small>Updates a specific topic, to submit -> { "name": str, "description": str }</small></td>
   </tr>
   <tr>
     <td><strong><code>DELETE /api/topics/{name_id:str}</code></strong></td>
-    <td>Deletes a specific topic.</td>
+    <td><small>Deletes a specific topic.</small></td>
   </tr>
   <tr>
     <td><strong><code>GET /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
-    <td>Fetch a specific content under a certain topic.</td>
+    <td><small>Fetch a specific content under a certain topic.</small></td>
   </tr>
   <tr>
     <td><strong><code>POST /api/topics/{name_id:str}</code></strong></td>
-    <td>Creates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</td>
+    <td><small>Creates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</small></td>
   </tr>
   <tr>
     <td><strong><code>PUT /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
-    <td>Updates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</td>
+    <td><small>Updates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</small></td>
   </tr>
   <tr>
     <td><strong><code>DELETE /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
-    <td>Deletes a specific content under a certain topic.</td>
+    <td><small>Deletes a specific content under a certain topic.</small></td>
   </tr>
 </table>
 <br/>
