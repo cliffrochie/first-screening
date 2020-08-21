@@ -16,6 +16,8 @@ PyJWT = "^1.7.1"
 factory_boy = "^3.0.1"
 black = "^19.10b0"
 mypy = "^0.782"
+flake8 = "^3.8.3"
+bandit = "^1.6.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

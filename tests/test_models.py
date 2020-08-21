@@ -1,13 +1,12 @@
 import sys, os
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.abspath(os.path.join(dir_path, os.pardir)))
-
 from first_screening import create_app, db
 from first_screening.models.db import *
 from first_screening.utils.formatter import format_name_id
 from werkzeug.security import generate_password_hash, check_password_hash
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.abspath(os.path.join(dir_path, os.pardir)))
 
 def test_new_user(test_client):
     user = User("johndoe", generate_password_hash("password"), True)

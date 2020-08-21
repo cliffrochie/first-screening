@@ -1,15 +1,12 @@
 import sys, os
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.abspath(os.path.join(dir_path, os.pardir)))
+import factory.alchemy
 
 from first_screening import db
 from first_screening.models.db import *
-from first_screening.utils.data import topics
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 
-import random
-import factory.alchemy
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.abspath(os.path.join(dir_path, os.pardir)))
 
 
 class BaseFactory(factory.alchemy.SQLAlchemyModelFactory):

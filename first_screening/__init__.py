@@ -3,12 +3,8 @@ __version__ = "0.1.0"
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_utils import database_exists, create_database
-from werkzeug.security import generate_password_hash
 
 db = SQLAlchemy()
-
-from first_screening.models.db import *
-
 
 def create_app():
     from first_screening.routes.data.data_route import data

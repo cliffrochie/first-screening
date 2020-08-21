@@ -11,7 +11,7 @@ class ContentControllerError(Exception):
 
 class ContentController:
     @staticmethod
-    def find(name_id, sequence_number):
+    def find(name_id: str, sequence_number: int) -> dict:
         try:
             content = (
                 Content.query.filter(Content.sequence_number == sequence_number)
@@ -29,7 +29,7 @@ class ContentController:
             raise ContentControllerError("Invalid attribute")
 
     @staticmethod
-    def create(name_id, data):
+    def create(name_id: str, data: dict) -> dict:
         try:
             topic = Topic.query.filter(Topic.name_id == name_id).first()
 
@@ -53,7 +53,7 @@ class ContentController:
             db.session.rollback()
 
     @staticmethod
-    def update(name_id, sequence_number, data):
+    def update(name_id: str, sequence_number: int, data: dict) -> dict:
         try:
 
             content = (
@@ -81,7 +81,7 @@ class ContentController:
             raise ContentControllerError("Attribute might be missing, or mispelled")
 
     @staticmethod
-    def delete(name_id, sequence_number):
+    def delete(name_id: str, sequence_number: int) -> dict:
         content = (
             Content.query.filter(Content.sequence_number == sequence_number)
             .join(Topic, Topic.id == Content.topic_id)

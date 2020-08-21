@@ -1,6 +1,3 @@
-from first_screening.models.db import *
-from first_screening import db
-
 topics = [
     {
         "name": "The Four Values of The Agile Manifesto",

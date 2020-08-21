@@ -18,30 +18,38 @@ class TopicController:
             if not topics:
                 return jsonify({"error": "Topics not found"}), 404
 
-            data = {}
             result = []
 
             for topic in topics:
-                result.append(format_topic(topic))
+                data = format_topic(topic)
+                data['contents'] = []
+                for content in topic.content:
+                    data['contents'].append(format_content(content))
+                result.append(data)
 
-            data = {"data": result}
-
-            return jsonify(data)
-
+            return jsonify(result)
+   
         except AttributeError:
             return jsonify({"error": "No topics found"}), 404
 
+        
+
     @staticmethod
-    def find(name_id):
+    def find(name_id: str) -> dict:
         topic = Topic.query.filter(Topic.name_id == name_id).first()
 
         if not topic:
             return jsonify({"error": "Topic not found"}), 404
+        
+        result = format_topic(topic)
+        result['contents'] = []
+        for content in topic.content:
+            result['contents'].append(format_content(content))
 
-        return jsonify(format_topic(topic))
+        return jsonify(result)
 
     @staticmethod
-    def create(data):
+    def create(data: dict) -> dict:
         try:
 
             topic = Topic(data["name"], data["description"])
@@ -67,8 +75,13 @@ class TopicController:
                 "Integrity Error: Duplicate entry of data"
             ) from e
 
+            db.session.rollback()
+
+            if "Duplicate entry" in str(e):
+                return jsonify9({"error": "Duplicate entry"}), 400
+
     @staticmethod
-    def update(name_id, data):
+    def update(name_id: str, data: dict) -> dict:
         if not data:
             return jsonify({"error": "No data submitted"}), 400
 
@@ -82,7 +95,7 @@ class TopicController:
         return jsonify(format_topic(topic))
 
     @staticmethod
-    def delete(id):
+    def delete(id: str) -> dict:
         topic = Topic.query.filter(Topic.name_id == id).first()
 
         if not topic:

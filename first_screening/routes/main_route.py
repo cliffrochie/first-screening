@@ -39,7 +39,7 @@ def update_topic(current_user, name_id):
 
 @router.route("/<name_id>", methods=["DELETE"])
 @token_required(allowed_guest=False)
-def delete_topic(currennt_user, name_id):
+def delete_topic(current_user, name_id):
     return TopicController.delete(name_id)
 
 

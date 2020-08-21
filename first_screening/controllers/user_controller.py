@@ -12,7 +12,7 @@ import datetime
 
 class UserController:
     @staticmethod
-    def login(auth):
+    def login(auth: dict) -> dict:
         if not auth or not auth.username or not auth.password:
             return make_response(
                 "Could not verify",

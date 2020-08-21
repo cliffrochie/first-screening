@@ -5,14 +5,13 @@ import pytest
 import flask
 import base64
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.abspath(os.path.join(dir_path, os.pardir)))
-
-from factories.base_factory import TopicFactory, UserFactory, ContentFactory
 from first_screening.models.db import *
+from factories.base_factory import TopicFactory, UserFactory, ContentFactory
 from first_screening.controllers.topic_controller import TopicControllerError
 from first_screening.controllers.content_controller import ContentControllerError
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.abspath(os.path.join(dir_path, os.pardir)))
 
 # def test_generate_user(test_client):
 #   response = test_client.get('/api/generate_user')

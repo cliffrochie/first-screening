@@ -19,12 +19,6 @@ def insert_data():
             db.session.add(content)
             db.session.commit()
 
-    user1 = User("John Doe", True)
-    user2 = User("John Smith", False)
-    db.session.add(user1)
-    db.session.add(user2)
-    db.session.commit()
-
 
 @data.route("/populate-data", methods=["GET"])
 def populate_data():
