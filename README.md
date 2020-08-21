@@ -45,4 +45,12 @@
 <br/>
 <h3>End-points</h3>
 <p>Below are the end-points of our RESTFul API:</p>
-<p><strong><code>/api/topics/ - GET</code></strong>.. Fetch all the topics stored in the database.</p>
+<p><strong><code>/api/topics/ - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch all the topics stored in the database.</p>
+<p><strong><code>/api/topics/<name_id:str> - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch a specific topic via its required id.</p>
+<p><strong><code>/api/topics/ - POST</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a new topic, to submit -> {"name": str, "description": str}</p>
+<p><strong><code>/api/topics/<name_id:str> - PUT</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific topic, to submit -> {"name": str, "description": str}</p>
+<p><strong><code>/api/topics/<name_id:str> - DELETE</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific topic.</p>
+ <br/>
+ <br/>
+ <p><strong><code>/api/topics/ - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch all the topics stored in the database.</p>
+  
