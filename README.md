@@ -101,4 +101,4 @@
 <p>To do the requests, you must attach a header namely <strong><code>'x-access-token'</code></strong> with a value of <strong><code>'example_token'</code></strong> in order for us to grant permission to the said request methods</p>
 
 <h3>Test</h3>
-To run the test, just type <strong><code>poetry run pytest</code></strong>
+To run the test, just type <strong><code>poetry run pytest</code></strong> in the base directory.
