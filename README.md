@@ -45,16 +45,44 @@
 <br/>
 <h3>End-points</h3>
 <p>Below are the end-points of our RESTFul API:</p>
-<p>GET <strong><code>/api/topics/ - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch all the topics stored in the database.</p>
-<p>GET <strong><code>/api/topics/{name_id:str} - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch a specific topic via its required id.</p>
-<p>POST <strong><code>/api/topics/ - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a new topic, to submit -> { "name": str, "description": str }</p>
-<p>PUT <strong><code>/api/topics/{name_id:str} - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific topic, to submit -> { "name": str, "description": str }</p>
-<p>DELETE <strong><code>/api/topics/{name_id:str} - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific topic.</p>
-<br/>
-<p>GET <strong><code>/api/topics/{name_id:str}/{sequence_number:int} - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch a specific content under a certain topic.</p>
-<p>POST <strong><code>/api/topics/{name_id:str} - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a specific content under a certain topic.</p>
-<p>PUT <strong><code>/api/topics/{name_id:str}/{sequence_number:int} - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific content under a certain topic.</p>
-<p>DELETE <strong><code>/api/topics/{name_id:str}/{sequence_number:int} - </code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific content under a certain topic.</p>
+<table>
+  <tr>
+    <td><strong><code>GET /api/topics/</code></strong></td>
+    <td>Fetch all the topics stored in the database.</td>
+  </tr>  
+  <tr>
+    <td><strong><code>GET /api/topics/{name_id:str}</code></strong></td>
+    <td>Fetch a specific topic via its required id.</td>
+  </tr>
+  <tr>
+    <td><strong><code>POST /api/topics/</code></strong></td>
+    <td>Creates a new topic, to submit -> { "name": str, "description": str }</td>
+  </tr>
+  <tr>
+    <td><strong><code>PUT /api/topics/{name_id:str}</code></strong></td>
+    <td>Updates a specific topic, to submit -> { "name": str, "description": str }</td>
+  </tr>
+  <tr>
+    <td><strong><code>DELETE /api/topics/{name_id:str}</code></strong></td>
+    <td>Deletes a specific topic.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
+    <td>Fetch a specific content under a certain topic.</td>
+  </tr>
+  <tr>
+    <td><strong><code>POST /api/topics/{name_id:str}</code></strong></td>
+    <td>Creates a specific content under a certain topic.</td>
+  </tr>
+  <tr>
+    <td><strong><code>PUT /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
+    <td>Updates a specific content under a certain topic.</td>
+  </tr>
+  <tr>
+    <td><strong><code>DELETE /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
+    <td>Deletes a specific content under a certain topic.</td>
+  </tr>
+</table>
 <br/>
 <h3>Note</h3>
 <p>Only a user that is registered at access POST, PUT, and DELETE request methods. To do that, you must access the <strong><code>/api/login</code></strong> route which it will return a response with a token value, but in this sample task, it is not that really important, it's just for the demo purpose only.</p>
