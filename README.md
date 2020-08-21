@@ -38,7 +38,7 @@
 <p>To run this program, make sure you already installed the package requirements stated above.</p>
 <p>To run the code, type <strong><code>poetry run python run.py</code></strong> when you are in the <strong><code>first-screening</code></strong> directory. Once the program starts, it will automatically created the database tables</p>
 <br/>
-<p>When the database is created, you can generate the sample data by accessing the url <strong><code>/data/populate-data</code></strong>.</p>
+<p>When the database is created, you can generate the sample data by accessing the url <strong><code>/data/populate-data</code></strong> to generate the required data which are the four values and twelve principles of agile software development.</p>
 <p>We can also remove all the data in our database by accesing the url <strong><code>http://localhost:5000/data/remove-data</code></strong>.</p> 
 <p>Also, we need to create an admin user. To do that, we'll acess the url <strong><code>/api/generate_user</code></strong>.</p>
 
@@ -47,10 +47,12 @@
 <p>Below are the end-points of our RESTFul API:</p>
 <p><strong><code>/api/topics/ - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch all the topics stored in the database.</p>
 <p><strong><code>/api/topics/<name_id:str> - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch a specific topic via its required id.</p>
-<p><strong><code>/api/topics/ - POST</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a new topic, to submit -> {"name": str, "description": str}</p>
-<p><strong><code>/api/topics/<name_id:str> - PUT</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific topic, to submit -> {"name": str, "description": str}</p>
+<p><strong><code>/api/topics/ - POST</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a new topic, to submit -> { "name": str, "description": str }</p>
+<p><strong><code>/api/topics/<name_id:str> - PUT</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific topic, to submit -> { "name": str, "description": str }</p>
 <p><strong><code>/api/topics/<name_id:str> - DELETE</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific topic.</p>
- <br/>
- <br/>
- <p><strong><code>/api/topics/ - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch all the topics stored in the database.</p>
+<br/>
+<p><strong><code>/api/topics/<name_id:str>/<sequence_number:int> - GET</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Fetch a specific content under a certain topic.</p>
+<p><strong><code>/api/topics/<name_id:str>/ - POST</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Creates a specific content under a certain topic.</p>
+<p><strong><code>/api/topics/<name_id:str>/<sequence_number:int> - PUT</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Updates a specific content under a certain topic.</p>
+<p><strong><code>/api/topics/<name_id:str>/<sequence_number:int> - DELETE</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;Deletes a specific content under a certain topic.</p>
   
