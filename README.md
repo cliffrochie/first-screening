@@ -36,8 +36,13 @@
 <br/>
 <h3>Usage</h3>
 <p>To run this program, make sure you already installed the package requirements stated above.</p>
-<p>To run the code, type <code>poetry run python run.py</code> when you are in the 'first-screening' directory. Once the program starts, it will automatically created the database tables</p>
+<p>To run the code, type <strong><code>poetry run python run.py</code></strong> when you are in the <strong><code>first-screening</code></strong> directory. Once the program starts, it will automatically created the database tables</p>
 <br/>
-<p>When the database is created, you can generate the sample data by accessing the url '/data/populate-data;.</p>
-<p>We can also remove all the data in our database by accesing the url 'http://localhost:5000/data/remove-data'.</p> 
-<p>Also, we need to create an admin user. To do that, we'll acess the url '/api/generate_user'.</p>
+<p>When the database is created, you can generate the sample data by accessing the url <strong><code>/data/populate-data</code></strong>.</p>
+<p>We can also remove all the data in our database by accesing the url <strong><code>http://localhost:5000/data/remove-data</code></strong>.</p> 
+<p>Also, we need to create an admin user. To do that, we'll acess the url <strong><code>/api/generate_user</code></strong>.</p>
+
+<br/>
+<h3>End-points</h3>
+<p>Below are the end-points of our RESTFul API:</p>
+<p><strong><code>/api/topics/ - GET</code></strong>.. Fetch all the topics stored in the database.</p>
