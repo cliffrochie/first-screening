@@ -39,7 +39,7 @@
 <p>To run the code, type <strong><code>poetry run python run.py</code></strong> when you are in the <strong><code>first-screening</code></strong> directory. Once the program starts, it will automatically created the database tables</p>
 <br/>
 <p>When the database is created, you can generate the sample data by accessing the url <strong><code>/data/populate-data</code></strong> to generate the required data which are the four values and twelve principles of agile software development.</p>
-<p>We can also remove all the data in our database by accesing the url <strong><code>http://localhost:5000/data/remove-data</code></strong>.</p> 
+<p>We can also remove all the data in our database by accesing the url <strong><code>/data/remove-data</code></strong>.</p> 
 <p>Also, we need to create an admin user. To do that, we'll acess the url <strong><code>/api/generate_user</code></strong>.</p>
 
 <br/>
@@ -81,6 +81,18 @@
   <tr>
     <td><strong><code>DELETE /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
     <td><small>Deletes a specific content under a certain topic.</small></td>
+  </tr>
+  <tr>
+    <td><strong><code>GET /data/populate-data</code></strong></td>
+    <td>Add all sample data in the database.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET /data/remove-data</code></strong></td>
+    <td>Remove all data in the database.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET /api/generate_user</code></strong></td>
+    <td>Generate user</td>
   </tr>
 </table>
 <br/>
