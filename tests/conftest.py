@@ -3,7 +3,6 @@ import pytest
 
 from first_screening import create_app, db
 from first_screening.models.db import *
-from first_screening.utils.formatter import format_name_id
 from factories.base_factory import TopicFactory
 
 dir_path = os.path.dirname(os.path.realpath(__file__))

@@ -1,16 +1,13 @@
 from first_screening import db
-from first_screening.utils.formatter import format_name_id
 
 
 class Topic(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name_id = db.Column(db.String(100), unique=True, nullable=False)
     name = db.Column(db.String(100), unique=True, nullable=False)
     description = db.Column(db.Text)
     content = db.relationship("Content", backref="topic", lazy="dynamic")
 
     def __init__(self, name, description):
-        self.name_id = format_name_id(name)
         self.name = name
         self.description = description
 

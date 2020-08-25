@@ -17,7 +17,7 @@ def create_app():
         create_database("mysql://root@localhost/screening")
 
     app.register_blueprint(data, url_prefix="/data")
-    app.register_blueprint(router, url_prefix="/api/topics")
+    app.register_blueprint(router, url_prefix="/api")
     app.register_blueprint(user, url_prefix="/api")
 
     app.config.from_object("first_screening.config")

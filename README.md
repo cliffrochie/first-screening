@@ -7,9 +7,8 @@
 <h3>Major requirements</h3>
 <ul>
   <li>This sample task requires Python 3.8+.</li>
-  <li>The database used in this sample task is MySQL, you must create a database namely <strong><code>screening</code></strong>.</li>
+  <li>The database used in this sample task is MySQL.</li>
 </ul>
-
 
 <br/>
 <h3>Package requirements</h3>
@@ -20,6 +19,7 @@
   <li><h4>flask_sqlalchemy</h4> - it is an extension for Flask that adds support for SQLAlchemy ORM.</li>
   <li><h4>sqlalchemy</h4> - it is an ORM, to use its exception module.</li>
   <li><h4>sqlalchemy_utils</h4> - a helper tool to handle database, table creation</li>
+  <li><h4>mysql-connector</h4> - a mysql database connector that allowed us to create a database within our sample task.</li>
   <li><h4>factory_boy</h4> - it is a fixture replacement tool that also provides data, etc. for testing.</li>
   <li><h4>PyJWT</h4> - to use json web token feature in auth.</li>
 </ul>
@@ -38,6 +38,8 @@
 <p>To run this program, make sure you already installed the package requirements stated above.</p>
 <p>To run the code, type <strong><code>poetry run python run.py</code></strong> when you are in the <strong><code>first-screening</code></strong> directory. Once the program starts, it will automatically created the database tables</p>
 <br/>
+<p>After we run the program, it will automatically create a database namely <strong><code>screening</code></strong></p>
+<p>If you deleted the database, you can still create it by accessing the url <strong><code>/data/generate-db</code></strong></p>
 <p>When the database is created, you can generate the sample data by accessing the url <strong><code>/data/populate-data</code></strong> to generate the required data which are the four values and twelve principles of agile software development.</p>
 <p>We can also remove all the data in our database by accesing the url <strong><code>/data/remove-data</code></strong>.</p> 
 <p>Also, we need to create an admin user. To do that, we'll acess the url <strong><code>/api/generate_user</code></strong>.</p>
@@ -47,51 +49,55 @@
 <p>Below are the end-points of our RESTFul API:</p>
 <table>
   <tr>
-    <td><strong><code>GET /api/topics/</code></strong></td>
+    <td><strong><code>GET -- /api/topics/</code></strong></td>
     <td><small>Fetch all the topics stored in the database.</small></td>
   </tr>  
   <tr>
-    <td><strong><code>GET /api/topics/{name_id:str}</code></strong></td>
+    <td><strong><code>GET -- /api/topics/{name_id:str}</code></strong></td>
     <td><small>Fetch a specific topic via its required id.</small></td>
   </tr>
   <tr>
-    <td><strong><code>POST /api/topics/</code></strong></td>
+    <td><strong><code>POST -- /api/topics/</code></strong></td>
     <td><small>Creates a new topic, to submit -> { "name": str, "description": str }</small></td>
   </tr>
   <tr>
-    <td><strong><code>PUT /api/topics/{name_id:str}</code></strong></td>
+    <td><strong><code>PUT -- /api/topics/{name_id:str}</code></strong></td>
     <td><small>Updates a specific topic, to submit -> { "name": str, "description": str }</small></td>
   </tr>
   <tr>
-    <td><strong><code>DELETE /api/topics/{name_id:str}</code></strong></td>
+    <td><strong><code>DELETE -- /api/topics/{name_id:str}</code></strong></td>
     <td><small>Deletes a specific topic.</small></td>
   </tr>
   <tr>
-    <td><strong><code>GET /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
+    <td><strong><code>GET -- /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
     <td><small>Fetch a specific content under a certain topic.</small></td>
   </tr>
   <tr>
-    <td><strong><code>POST /api/topics/{name_id:str}</code></strong></td>
+    <td><strong><code>POST -- /api/topics/{name_id:str}</code></strong></td>
     <td><small>Creates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</small></td>
   </tr>
   <tr>
-    <td><strong><code>PUT /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
+    <td><strong><code>PUT -- /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
     <td><small>Updates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</small></td>
   </tr>
   <tr>
-    <td><strong><code>DELETE /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
+    <td><strong><code>DELETE -- /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
     <td><small>Deletes a specific content under a certain topic.</small></td>
   </tr>
   <tr>
-    <td><strong><code>GET /data/populate-data</code></strong></td>
+    <td><strong><code>GET -- /data/generate-db</code></strong></td>
+    <td>Create the database for our sample task project.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET -- /data/populate-data</code></strong></td>
     <td>Add all sample data in the database.</td>
   </tr>
   <tr>
-    <td><strong><code>GET /data/remove-data</code></strong></td>
+    <td><strong><code>GET -- /data/remove-data</code></strong></td>
     <td>Remove all data in the database.</td>
   </tr>
   <tr>
-    <td><strong><code>GET /api/generate_user</code></strong></td>
+    <td><strong><code>GET -- /api/generate_user</code></strong></td>
     <td>Generate user</td>
   </tr>
 </table>

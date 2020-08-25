@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from sqlalchemy.exc import IntegrityError, InvalidRequestError
+from sqlalchemy.exc import IntegrityError, InvalidRequestError, ProgrammingError
 from first_screening.models.db import *
 from first_screening import db
 from first_screening.utils.formatter import *
@@ -13,6 +13,7 @@ class TopicController:
     @staticmethod
     def all():
         try:
+
             topics = Topic.query.all()
 
             if not topics:
@@ -32,25 +33,38 @@ class TopicController:
         except AttributeError:
             return jsonify({"error": "No topics found"}), 404
 
+        except ProgrammingError:
+            return jsonify({"error": "There is something wrong with the server"}), 400
+
         
 
     @staticmethod
-    def find(name_id: str) -> dict:
-        topic = Topic.query.filter(Topic.name_id == name_id).first()
+    def find(topic_id: int) -> dict:
+        try:
 
-        if not topic:
-            return jsonify({"error": "Topic not found"}), 404
-        
-        result = format_topic(topic)
-        result['contents'] = []
-        for content in topic.content:
-            result['contents'].append(format_content(content))
+            topic = Topic.query.get(topic_id)
 
-        return jsonify(result)
+            if not topic:
+                return jsonify({"error": "Topic not found"}), 404
+            
+            result = format_topic(topic)
+            result['contents'] = []
+            for content in topic.content:
+                result['contents'].append(format_content(content))
+
+            return jsonify(result)
+
+        except ProgrammingError:
+            return jsonify({"error": "There is something wrong with the server"}), 400
 
     @staticmethod
     def create(data: dict) -> dict:
         try:
+            
+            check_topic = Topic.query.filter(Topic.name == data["name"]).first()
+
+            if check_topic:
+                return jsonify({"error": "Duplicate entry"}), 400
 
             topic = Topic(data["name"], data["description"])
             db.session.add(topic)
@@ -58,50 +72,61 @@ class TopicController:
 
             return jsonify(format_topic(topic))
 
+        except TypeError as e:
+            return jsonify({"error": "No data submitted"}), 400
+
         except AssertionError as e:
-            raise TopControllerError("Data needed to submit") from e
+            return jsonify({"error": "Data needed to submit"}), 400
 
         except AttributeError as e:
-            raise TopicControllerError("Request has no attribute") from e
+            return jsonify({"error": "Request has no attribute"}), 400
 
         except KeyError as e:
-            raise TopicControllerError("Missing key") from e
+            return jsonify({"error": "Invalid or missing key from the data"}), 400
 
         except InvalidRequestError as e:
-            raise TopicControllerError("Invalid request") from e
+            return jsonify({"error": "Invalid request"}), 400
 
         except IntegrityError as e:
-            raise TopicControllerError(
-                "Integrity Error: Duplicate entry of data"
-            ) from e
-
             db.session.rollback()
 
             if "Duplicate entry" in str(e):
                 return jsonify9({"error": "Duplicate entry"}), 400
 
-    @staticmethod
-    def update(name_id: str, data: dict) -> dict:
-        if not data:
-            return jsonify({"error": "No data submitted"}), 400
-
-        topic = Topic.query.filter(Topic.name_id == name_id).first()
-        topic.name_id = format_name_id(data["name"])
-        topic.name = data["name"]
-        topic.description = data["description"]
-
-        db.session.commit()
-
-        return jsonify(format_topic(topic))
+        except ProgrammingError:
+            return jsonify({"error": "There is something wrong with the server"}), 400
 
     @staticmethod
-    def delete(id: str) -> dict:
-        topic = Topic.query.filter(Topic.name_id == id).first()
+    def update(topic_id: int, data: dict) -> dict:
+        try:
 
-        if not topic:
-            return jsonify({"error": "Topic not found"}), 404
+            if not data:
+                return jsonify({"error": "No data submitted"}), 400
 
-        db.session.delete(topic)
-        db.session.commit()
+            topic = Topic.query.get(topic_id)
+            topic.name = data["name"]
+            topic.description = data["description"]
 
-        return jsonify({}), 204
+            db.session.commit()
+
+            return jsonify(format_topic(topic))
+            
+        except ProgrammingError:
+            return jsonify({"error": "There is something wrong with the server"}), 400
+
+    @staticmethod
+    def delete(topic_id: int) -> dict:
+        try:
+
+            topic = Topic.query.get(topic_id)
+
+            if not topic:
+                return jsonify({"error": "Topic not found"}), 404
+
+            db.session.delete(topic)
+            db.session.commit()
+
+            return jsonify({}), 204
+
+        except ProgrammingError:
+            return jsonify({"error": "There is something wrong with the server"}), 400

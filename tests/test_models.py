@@ -2,7 +2,6 @@ import sys, os
 
 from first_screening import create_app, db
 from first_screening.models.db import *
-from first_screening.utils.formatter import format_name_id
 from werkzeug.security import generate_password_hash, check_password_hash
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -18,8 +17,8 @@ def test_new_topic(test_client):
     name = "Somewhere down the road"
     description = "Great music!"
     topic = Topic(name, description)
-    assert topic.name_id == format_name_id(topic.name)
     assert topic.name is not None
+    assert topic.name == "Somewhere down the road"
 
 
 def test_new_content(test_client, new_topic):

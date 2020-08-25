@@ -51,6 +51,6 @@ def is_admin(current_user):
     if not current_user:
         return False
     user = User.query.filter(User.id == current_user.id).first()
-    if user.is_amin == True:
+    if user.is_admin == True:
         return True
     return False
