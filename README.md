@@ -105,3 +105,6 @@
 <h3>Note</h3>
 <p>Only a user that is registered at access POST, PUT, and DELETE request methods. To do that, you must access the <strong><code>/api/login</code></strong> route which it will return a response with a token value, but in this sample task, it is not that really important, it's just for the demo purpose only.</p>
 <p>To do the requests, you must attach a header namely <strong><code>'x-access-token'</code></strong> with a value of <strong><code>'example_token'</code></strong> in order for us to grant permission to the said request methods</p>
+
+<h3>Test</h3>
+To run the test, just type <strong><code>poetry run pytest</code></strong> in the base directory.
