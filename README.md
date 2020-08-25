@@ -95,11 +95,11 @@
   </tr>
   <tr>
     <td><strong><code>POST -- /api/topics/{name_id:str}</code></strong></td>
-    <td><small>Creates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</small></td>
+    <td><small>Creates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str, "topic_id": int }</small></td>
   </tr>
   <tr>
     <td><strong><code>PUT -- /api/topics/{name_id:str}/{sequence_number:int}</code></strong></td>
-    <td><small>Updates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str }</small></td>
+    <td><small>Updates a specific content under a certain topic, to submit -> { "sequence_number": int, "title": str, "body": str, "topic_id": int }</small></td>
   </tr>
   <tr>
     <td><strong><code>DELETE -- /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
