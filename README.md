@@ -40,7 +40,8 @@
 <br/>
 <p>After we run the program, it will automatically create a database namely <strong><code>screening</code></strong></p>
 <p>If you deleted the database, you can still create it by accessing the url <strong><code>/data/generate-db</code></strong></p>
-<p>When the database is created, you can generate the sample data by accessing the url <strong><code>/data/populate-data</code></strong> to generate the required data which are the four values and twelve principles of agile software development.</p>
+<p>You can also generate the tables by accessing the url <strong><code>/data/generate-tables</code></strong></p>
+<p>When the database and tables are created, you can generate the sample data by accessing the url <strong><code>/data/populate-data</code></strong> to generate the required data which are the four values and twelve principles of agile software development.</p>
 <p>We can also remove all the data in our database by accesing the url <strong><code>/data/remove-data</code></strong>.</p> 
 <p>Also, we need to create an admin user. To do that, we'll acess the url <strong><code>/api/generate_user</code></strong>.</p>
 
@@ -48,6 +49,26 @@
 <h3>End-points</h3>
 <p>Below are the end-points of our RESTFul API:</p>
 <table>
+  <tr>
+    <td><strong><code>GET -- /data/generate-db</code></strong></td>
+    <td>Create the database for our sample task project.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET -- /data/generate-tables</code></strong></td>
+    <td>Create the tables for our sample task project.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET -- /data/populate-data</code></strong></td>
+    <td>Add all sample data in the database.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET -- /data/remove-data</code></strong></td>
+    <td>Remove all data in the database.</td>
+  </tr>
+  <tr>
+    <td><strong><code>GET -- /api/generate_user</code></strong></td>
+    <td>Generate user</td>
+  </tr>
   <tr>
     <td><strong><code>GET -- /api/topics/</code></strong></td>
     <td><small>Fetch all the topics stored in the database.</small></td>
@@ -83,22 +104,6 @@
   <tr>
     <td><strong><code>DELETE -- /api/topics/{name_id:str}/{sequence_number:int</code></strong></td>
     <td><small>Deletes a specific content under a certain topic.</small></td>
-  </tr>
-  <tr>
-    <td><strong><code>GET -- /data/generate-db</code></strong></td>
-    <td>Create the database for our sample task project.</td>
-  </tr>
-  <tr>
-    <td><strong><code>GET -- /data/populate-data</code></strong></td>
-    <td>Add all sample data in the database.</td>
-  </tr>
-  <tr>
-    <td><strong><code>GET -- /data/remove-data</code></strong></td>
-    <td>Remove all data in the database.</td>
-  </tr>
-  <tr>
-    <td><strong><code>GET -- /api/generate_user</code></strong></td>
-    <td>Generate user</td>
   </tr>
 </table>
 <br/>
