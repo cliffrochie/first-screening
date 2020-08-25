@@ -50,7 +50,7 @@
 <p>Below are the end-points of our RESTFul API:</p>
 <table>
   <tr>
-    <td><strong><code>GET -- /data/generate-db</code></strong></td>
+    <td width="60%"><strong><code>GET -- /data/generate-db</code></strong></td>
     <td>Create the database for our sample task project.</td>
   </tr>
   <tr>
