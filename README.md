@@ -6,7 +6,7 @@
 
 <h3>Major requirements</h3>
 <ul>
-  <li>This sample task requires Python 3.8+.</li>
+  <li>This sample task is using Python 3.8+.</li>
   <li>The database used in this sample task is MySQL.</li>
 </ul>
 

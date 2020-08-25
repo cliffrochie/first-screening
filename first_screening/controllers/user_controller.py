@@ -9,6 +9,7 @@ from first_screening.config import SECRET_KEY
 
 import jwt
 import datetime
+import factory
 
 
 class UserController:
